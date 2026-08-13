@@ -61,6 +61,23 @@ def create_batch_mask_v2(batch_idx, ts_len=1000, ls=10):
 
 
 def matrix_profile(ts, ls, batch_size=32, mode='c'):
+    """
+    Compute the matrix profile of a time series.
+
+    Input:
+        ts: PyTorch tensor of shape (1, sequence_length).
+        ls: Length of each subsequence.
+        batch_size: Number of subsequences processed per batch (default 32).
+        mode: Distance/similarity measure to use:
+              'c' for cosine similarity, 'e' for Euclidean distance.
+
+    Output:
+        all_score: PyTorch tensor containing the best match score for
+                   each subsequence.
+        all_idx: PyTorch tensor containing the index of the best match
+                 for each subsequence.
+    """
+    
     all_score = []
     all_idx = []
     window_loader = subseqeunce_dataloader(ts, ls=ls, batch_size=batch_size)
