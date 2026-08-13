@@ -13,3 +13,9 @@ import torch
 ts = torch.randn(1,1000)
 mp, mpi = matrix_profile(ts,ls=100)
 ```
+
+Once matrix profile and index profile is obtained. The code support quick pair motif visualization
+
+```python
+plot_pair_motif(ts,mp,mpi,ls=100)
+```
