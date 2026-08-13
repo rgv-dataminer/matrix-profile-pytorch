@@ -19,3 +19,4 @@ Once matrix profile and index profile is obtained. The code support quick pair m
 ```python
 plot_pair_motif(ts,mp,mpi,ls=100)
 ```
+A demo example with TEK time series data is included in the provided Google Colab Link. The code will produce the pair motif visualization shown below.
