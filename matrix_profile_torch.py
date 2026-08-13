@@ -1,6 +1,7 @@
 from data_loader import *
 import torch
 import numpy as np
+from tqdm import tqdm
 
 def query_base_euclidean(ts, s):
     """
@@ -81,7 +82,7 @@ def matrix_profile(ts, ls, batch_size=32, mode='c'):
     all_score = []
     all_idx = []
     window_loader = subseqeunce_dataloader(ts, ls=ls, batch_size=batch_size)
-    for window_batch, idx_batch in window_loader:
+    for window_batch, idx_batch in tqdm(window_loader):
         window_batch = window_batch.to(ts.device)
         idx_batch = idx_batch.to(ts.device)
         if mode=='c':
