@@ -1,4 +1,6 @@
 from data_loader import *
+import torch
+import numpy as np
 
 def query_base_euclidean(ts, s):
     """
