@@ -61,7 +61,7 @@ def create_batch_mask_v2(batch_idx, ts_len=1000, ls=10):
     return torch.abs(idx-batch_idx).T < ls
 
 
-def matrix_profile(ts, ls, batch_size=32, mode='c', dist_func=None):
+def matrix_profile(ts, ls, batch_size=32, mode='c', dist_func=None, mask_func=None):
     """
     Compute the matrix profile of a time series.
 
@@ -97,7 +97,7 @@ def matrix_profile(ts, ls, batch_size=32, mode='c', dist_func=None):
           score, idx = dist.min(dim=1)
         elif mode=='d':
             dist = dist_func(ts, window_batch)
-            mask = create_batch_mask_v2(idx_batch,ts_len=dist.shape[1],ls=window_batch.shape[2])
+            mask = mask_func(idx_batch,ts_len=dist.shape[1],ls=window_batch.shape[2])
             dist[mask] = 10000
             score, idx = dist.min(dim=1)
         
