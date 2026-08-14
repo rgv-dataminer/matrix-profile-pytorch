@@ -14,6 +14,19 @@ ts = torch.randn(1,1000)
 mp, mpi = matrix_profile(ts,ls=100)
 ```
 
+**GPU version running**
+
+If GPU unit is ready to use, the code can perform GPU based running code via:
+
+```python
+from matrix_profile_torch import matrix_profile
+import torch
+ts = torch.randn(1,1000)
+ts = ts.cuda()
+mp, mpi = matrix_profile(ts,ls=100)
+```
+
+
 Once matrix profile and index profile is obtained. The code support quick pair motif visualization
 
 ```python
