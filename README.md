@@ -36,7 +36,7 @@ For example, if user would like to implement left matrix profile, it can impleme
 import torch
 from matrix_profile_torch import query_base_euclidean
 
-def create_batch_mask_left(batch_idx, ts_len=1000, ls=10):
+def create_batch_mask_left(batch_idx, ts_len, ls):
     if len(batch_idx.shape)==1:
       batch_idx.unsqueeze(0)
     idx = torch.arange(ts_len).unsqueeze(1)
