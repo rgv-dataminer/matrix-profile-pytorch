@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import torch
+import numpy as np
 
 def plot_pair_motif(ts, score,idx_mp, ls=100, dim=0):
     idx = torch.argmax(score)
