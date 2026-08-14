@@ -42,7 +42,7 @@ def create_batch_mask_left(batch_idx, ts_len=1000, ls=10):
     idx = torch.arange(ts_len).unsqueeze(1)
     return (idx-batch_idx).T < ls
 
-mp_left, mpi_left = matrix_profile(ts,ls=100, mode='d',dist_func=query_base_euclidean, mask_func=create_batch_mask_left)
+mp_left, mpi_left = matrix_profile(ts,ls=100, mode='d', mask_func=create_batch_mask_left)
 ```
 
 
