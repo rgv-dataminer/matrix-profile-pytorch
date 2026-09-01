@@ -18,10 +18,10 @@ def find_instances(dist_profile,l=100):
     index = index.long()
     return dist, index
 
-def find_motif_instance(ts, idx, l=100, qfunc=None):
+def find_motif_instanceX(ts, idx, l=100, qfunc=None):
     s = ts[:,idx:idx+l]
     if qfunc is None:
         qfunc = query_base
     dist_profile = qfunc(ts, s.unsqueeze(dim=0))
     dist_profile = 2- 2*dist_profile
-    dist, loc = get_motif_instances(dist,l=ls)
+    dist, loc = find_instances(dist_profile,l=l)
