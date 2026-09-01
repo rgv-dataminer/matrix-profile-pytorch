@@ -25,3 +25,4 @@ def find_motif_instance(ts, idx, l=100, qfunc=None):
     dist_profile = qfunc(ts, s.unsqueeze(dim=0))
     dist_profile = 2- 2*dist_profile
     dist, loc = find_instances(dist_profile,l=l)
+    return dist, loc 
