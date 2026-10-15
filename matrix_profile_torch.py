@@ -57,7 +57,7 @@ def query_base(ts, s):
 def create_batch_mask_v2(batch_idx, ts_len=1000, ls=10):
     if len(batch_idx.shape)==1:
       batch_idx.unsqueeze(0)
-    idx = torch.arange(ts_len).unsqueeze(1)
+    idx = torch.arange(ts_len).unsqueeze(1).to(batch_idx.device)
     return torch.abs(idx-batch_idx).T < ls
 
 
